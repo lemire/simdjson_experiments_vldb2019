@@ -85,7 +85,7 @@ distinct_id: checkht
 
 comparison: checkht
 	git submodule update --init --recursive
-	cd library/simdjson && make clean && cd ../..
+	git -C library/simdjson clean -xdf .
 	docker build  -f experiments/comparison/Dockerfile -t comparison .
 	$(eval outputdir:=$(PWD)/results/$(nodename)/comparison)
 	@echo $(outputdir)
